@@ -1,101 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/1.5.2/pico.min.css"
-        integrity="sha512-3gFq2IXMVlAQaUyahzhjDRivv0yqyXTb7xiy6ivTaG5Uz4hKI54uYxpQefdomgDVQ11eJVUbXG0YdPMDISiGgg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/picocss/1.5.2/pico.min.css"
+      integrity="sha512-3gFq2IXMVlAQaUyahzhjDRivv0yqyXTb7xiy6ivTaG5Uz4hKI54uYxpQefdomgDVQ11eJVUbXG0YdPMDISiGgg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Puntuación Final</title>
     <style>
-        .podium {
-            display: flex;
-        }
+      .podium {
+        display: flex;
+      }
 
-        .stand {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-            /* Cambio el fondo a un color gris claro para mejorar el contraste */
-        }
+      .stand {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+        /* Cambio el fondo a un color gris claro para mejorar el contraste */
+      }
 
-        .place-number {
-            font-size: 24px;
-            color: #333;
-            /* Cambio el color a un tono más oscuro para mejorar la legibilidad */
-            font-weight: bold;
-        }
+      .place-number {
+        font-size: 24px;
+        color: #333;
+        /* Cambio el color a un tono más oscuro para mejorar la legibilidad */
+        font-weight: bold;
+      }
 
-        .player-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 10px 0;
-            color: #333;
-            /* Cambio el color a un tono más oscuro para mejorar la legibilidad */
-        }
+      .player-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+        color: #333;
+        /* Cambio el color a un tono más oscuro para mejorar la legibilidad */
+      }
 
-        .score {
-            font-size: 20px;
-            color: #000;
-            /* Cambio el color a negro para mejorar la legibilidad */
-        }
+      .score {
+        font-size: 20px;
+        color: #000;
+        /* Cambio el color a negro para mejorar la legibilidad */
+      }
 
-        .first-place {
-            background-color: #ffd700;
-        }
+      .first-place {
+        background-color: #ffd700;
+      }
 
-        .second-place {
-            background-color: #c0c0c0;
-        }
+      .second-place {
+        background-color: #c0c0c0;
+      }
 
-        .third-place {
-            background-color: #cd7f32;
-        }
+      .third-place {
+        background-color: #cd7f32;
+      }
 
-        .stand {
-            border: 2px solid #000;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            margin: 0 10px;
-        }
+      .stand {
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        margin: 0 10px;
+      }
 
-        button {
-            padding: 1rem;
-            margin-top: 1rem;
-        }
+      button {
+        padding: 1rem;
+        margin-top: 1rem;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="container">
-        <div class="podium">
-            <div class="stand first-place">
-                <div class="place-number">1st</div>
-                <div class="player-name">Player 1</div>
-                <div class="score">X palabras adivinadas</div>
-            </div>
-            <div class="stand second-place">
-                <div class="place-number">2nd</div>
-                <div class="player-name">Player 2</div>
-                <div class="score">X palabras adivinadas</div>
-            </div>
-            <div class="stand third-place">
-                <div class="place-number">3rd</div>
-                <div class="player-name">Player 3</div>
-                <div class="score">X palabras adivinadas</div>
-            </div>
+      <div class="podium">
+        <div class="stand first-place">
+          <div class="place-number">1st</div>
+          <div id="player1Name" class="player-name">Player 1</div>
+          <div id="score1" class="score">X palabras adivinadas</div>
         </div>
-        <div>
-            <button>
-                Actualizar Podium
-            </button>
+        <div class="stand second-place">
+          <div class="place-number">2nd</div>
+          <div id="player2Name" class="player-name">Player 2</div>
+          <div id="score2" class="score">X palabras adivinadas</div>
         </div>
+        <div class="stand third-place">
+          <div class="place-number">3rd</div>
+          <div id="player3Name" class="player-name">Player 3</div>
+          <div id="score3" class="score">X palabras adivinadas</div>
+        </div>
+      </div>
+      <div>
+        <button>Actualizar Podium</button>
+      </div>
     </main>
-</body>
+  </body>
 
+  <script>
+    
+    const player1Name = document.querySelector("#player1Name");
+    const player2Name = document.querySelector("#player2Name");
+    const player3Name = document.querySelector("#player3Name");
+
+    const score1 = document.querySelector("#score1");
+    const score2 = document.querySelector("#score2");
+    const score3 = document.querySelector("#score3");
+
+    button = addEventListener("click", async function () {
+      const response = await fetch(
+        "https://score-word-of-the-dat.onrender.com/scores"
+      );
+      const info = await response.json();
+
+      player1Name.textContent = info[0].nombre;
+      player2Name.textContent = info[1].nombre;
+      player3Name.textContent = info[2].nombre;
+
+      score1.textContent = info[0].puntos;
+      score2.textContent = info[1].puntos;
+      score3.textContent = info[2].puntos;
+
+
+    });
+  </script>
 </html>
